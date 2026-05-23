@@ -9,6 +9,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 SRC = ROOT / "kepty_ordered.txt"
 DST = ROOT / "code.html"
+# GitHub Pages（Branch: main / Folder: /(root)）はリポジトリ直下の index.html を探す
+GIT_ROOT = ROOT.parent
+INDEX_HTML = GIT_ROOT / "index.html"
 
 TITLE = "Kepty English | サービス説明資料"
 URL = "https://keptyenglish.jp/"
@@ -369,6 +372,7 @@ def main() -> None:
     )
 
     DST.write_text(doc, encoding="utf-8")
+    INDEX_HTML.write_text(doc, encoding="utf-8")
 
 
 if __name__ == "__main__":
